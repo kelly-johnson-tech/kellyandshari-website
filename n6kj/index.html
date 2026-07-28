@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="N6KJ — Kelly Johnson's Amateur Radio Page. Ham radio since 1975. Contesting, DXing, VHF/UHF, and Microwaves." />
+  <title>N6KJ — Kelly Johnson's Amateur Radio Page</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1a2e;
+      --muted:     #5a5a72;
+      --accent:    #2e6da4;
+      --accent-lt: #d6e8f7;
+      --rule:      #c8d8e8;
+      --bg:        #f7f9fc;
+      --card:      #ffffff;
+      --radius:    10px;
+      --max-w:     740px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Page shell ─────────────────────────────────── */
+    .page-wrap {
+      flex: 1;
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Header ─────────────────────────────────────── */
+    header {
+      text-align: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 2.5rem;
+    }
+
+    .callsign {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(2.4rem, 8vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .callsign-sub {
+      margin-top: 0.4rem;
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .callsign-history {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .callsign-history span {
+      display: inline-block;
+      background: var(--accent-lt);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      margin: 0.15rem;
+      font-family: monospace;
+      font-size: 0.88rem;
+      color: var(--accent);
+    }
+
+    /* ── Nav ─────────────────────────────────────────── */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    nav a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent-lt);
+      background: var(--card);
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    nav a:hover {
+      background: var(--accent-lt);
+      border-color: var(--accent);
+    }
+
+    /* ── Sections ────────────────────────────────────── */
+    section {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 1.5rem;
+      scroll-margin-top: 1rem;
+    }
+
+    section h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--accent-lt);
+    }
+
+    section p {
+      color: var(--ink);
+      font-size: 0.97rem;
+      margin-bottom: 0.75rem;
+    }
+
+    section p:last-child { margin-bottom: 0; }
+
+    /* ── Links ───────────────────────────────────────── */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover, a:focus {
+      color: #1a4f7a;
+      border-bottom-color: currentColor;
+      outline: none;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* ── Tables ──────────────────────────────────────── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1rem 0 0.5rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--rule);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    thead th {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      padding: 0.6rem 1rem;
+      letter-spacing: 0.03em;
+    }
+
+    tbody tr:nth-child(even) { background: var(--accent-lt); }
+    tbody tr:nth-child(odd)  { background: var(--card); }
+
+    tbody td {
+      padding: 0.5rem 1rem;
+      color: var(--ink);
+      border-bottom: 1px solid var(--rule);
+      font-variant-numeric: tabular-nums;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* ── Prized contacts list ────────────────────────── */
+    .dx-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .dx-list li {
+      background: var(--accent-lt);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      padding: 0.2rem 0.6rem;
+      font-family: monospace;
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+
+    .dx-list li span {
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      display: block;
+    }
+
+
+    /* ── Footer ──────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+    }
+
+    footer a { color: var(--accent); }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 480px) {
+      .page-wrap { padding: 1.5rem 1rem 3rem; }
+      section { padding: 1.2rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page-wrap">
+
+  <!-- ── Header ─────────────────────────────────────── -->
+  <header>
+    <h1 class="callsign">N6KJ</h1>
+    <p class="callsign-sub">Kelly Johnson &mdash; Amateur Radio Page</p>
+    <p class="callsign-history">
+      Licensed since 1975 &nbsp;&middot;&nbsp; Callsign progression:
+      <span>WD8DMX</span>
+      <span>KI6NX</span>
+      <span>AA6BE</span>
+      <span>N6KJ</span>
+    </p>
+  </header>
+
+  <!-- ── Quick nav ──────────────────────────────────── -->
+  <nav aria-label="Page sections">
+    <a href="#operations">Daily Operations</a>
+    <a href="#emcomm">EmComm &amp; Public Service</a>
+    <a href="#contesting">Contesting</a>
+    <a href="#dxing">DXing</a>
+    <a href="#vhf">VHF / UHF</a>
+    <a href="#microwaves">Microwaves</a>
+
+  </nav>
+
+  <!-- ── Background ─────────────────────────────────── -->
+  <section id="background">
+    <h2>Background</h2>
+    <p>
+      I have been a ham since 1975 when I was 13 years old. My first callsign
+      was <strong>WD8DMX</strong>, obtained while living in White Cloud, Michigan,
+      my childhood home. Since then I have held the following callsigns
+      in succession: WD8DMX, KI6NX, AA6BE, and now <strong>N6KJ</strong>.
+    </p>
+  </section>
+
+  <!-- ── Daily Operations ───────────────────────────── -->
+  <section id="operations">
+    <h2>Daily Operations</h2>
+    <p>
+      My favorite activities are contesting and DXing. I spend about 95% of my
+      time operating CW, typically moving along at 30 or 40 WPM. The remaining
+      5% is a combination of SSB, PSK-31, and occasional RTTY.
+    </p>
+    <p>
+      In June 2024 I relocated approximately 2.5 hours from my previous home.
+      Unfortunately, HOA restrictions at my new location prevent me from
+      operating amateur radio from home, so my home station is currently inactive.
+    </p>
+    <p>
+      From 2005 through 2024, my station consisted of a <strong>Yaesu
+      FT-1000MP</strong>, a <strong>Yaesu FT-857D</strong>, a <strong>Yaesu
+      FT-817</strong>, a 3-element <strong>SteppIR Yagi</strong> at about 54
+      feet, an <strong>OB2-40 Optibeam 40m Yagi</strong> at 62 feet, and a 40/80
+      inverted vee with the apex at 50 feet. The FT-1000MP was the primary
+      HF workhorse. The FT-857D was used primarily for VHF/UHF. The FT-817 was
+      primarily used as an IF rig for microwave transverters. When not
+      contesting, I could usually be found hunting DX in the CW subbands.
+    </p>
+    <p>
+      Photos of me and my old station are available in my
+      <a href="https://1drv.ms/a/c/bbf9d4757b5171c2/IgAG4U5ctMh5SLEpwWbXbbOgAWZ01VtGauMRrSeIbn7KZYA?e=NBjyMe" target="_blank" rel="noopener noreferrer">OneDrive photo album</a>.
+    </p>
+  </section>
+
+  <!-- ── EmComm ─────────────────────────────────────── -->
+  <section id="emcomm">
+    <h2>Emergency Communications &amp; Public Service</h2>
+    <p>
+      It is important for all amateur radio operators to be prepared for
+      emergency communications. I maintain a battery backup at all times in the
+      event of a power failure. I am a member of <strong>RACES</strong> and I
+      have provided emergency communications on several occasions in the past —
+      most notably during the severe blizzard of 1978 in Michigan — and I am
+      prepared to do so in the future. This is part of the service amateur radio
+      provides to the community.
+    </p>
+    <p>
+      As an ex-Boy Scout I enjoy communicating with other scouts around the globe
+      during <strong>JOTA</strong> (Jamboree on the Air), a yearly event that
+      gives scouts the ability to speak directly with other scouts around the
+      world via amateur radio.
+    </p>
+  </section>
+
+  <!-- ── Contesting ─────────────────────────────────── -->
+  <section id="contesting">
+    <h2>Contesting</h2>
+    <p>
+      My home station was underpowered for serious contesting, and since
+      relocating in June 2024 I am unable to operate contests from home due to
+      HOA restrictions. Most of my serious contest efforts have been from nearby
+      contest stations: <strong>W6NV</strong> (Sunol Ridge),
+      <a href="https://w6yx.stanford.edu" target="_blank" rel="noopener noreferrer">W6YX</a>
+      (Stanford University ARC), or <a href="http://www.n6ij.org/" target="_blank" rel="noopener noreferrer">N6IJ</a>
+      (Monterey Bay ARA).
+    </p>
+    <p>
+      My most serious home effort was the 2003 November SS CW contest,
+      where I made about 450 QSOs in 10 hours of operation. This was part of a
+      larger effort by the <a href="http://www.nccc.cc/" target="_blank" rel="noopener noreferrer">Northern
+      California Contest Club (NCCC)</a> to win the November SS Unlimited Club
+      competition — which we did.  My most recent home effort was the 2011 ARRL November SS CW contest. 
+    </p>
+    <p>
+      I frequently operated as part of a multi-op team from the
+      <strong>W6NV Sunol Ridge</strong> contest station, typically for CQWW DX,
+      CQWW WPX, and the ARRL International DX Contest.
+    </p>
+    <p>
+      I am a member of the <strong>Stanford University ARC
+      <a href="http://w6yx.stanford.edu" target="_blank" rel="noopener noreferrer">W6YX</a></strong>.
+      The club station hosts HF and VHF contesters, moonbounce, microwave, and
+      satellite enthusiasts. During Field Day 2004 I spent the first 3 hours
+      running the 20m CW station at ~70 QSOs/hour and the next 3 hours running
+      the 15m CW station at ~50&ndash;60 QSOs/hour.
+    </p>
+  </section>
+
+  <!-- ── DXing ──────────────────────────────────────── -->
+  <section id="dxing">
+    <h2>DXing</h2>
+    <p>
+      Unlike most other NCCC members, I still collect QSL cards and work toward
+      awards.  As of January 2026, I am on the <strong>DXCC Honor Roll</strong> with 331 countries confirmed.
+      I received 5BDXCC award #6744 in January 2010.  My current DXCC counts are shown below.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Band / Mode</th>
+            <th>Worked</th>
+            <th>Confirmed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>80m</td><td>113</td><td>110</td></tr>
+          <tr><td>40m</td><td>214</td><td>202</td></tr>
+          <tr><td>30m</td><td>22</td><td>21</td></tr>
+          <tr><td>20m</td><td>288</td><td>283</td></tr>
+          <tr><td>17m</td><td>150</td><td>137</td></tr>
+          <tr><td>15m</td><td>222</td><td>215</td></tr>
+          <tr><td>12m</td><td>62</td><td>54</td></tr>
+          <tr><td>10m</td><td>163</td><td>159</td></tr>
+          <tr><td>Phone</td><td>268</td><td>263</td></tr>
+          <tr><td>CW</td><td>300</td><td>293</td></tr>
+          <tr><td>Mixed</td><td>331</td><td>331</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:1rem;">
+      I return QSL 100%. I periodically upload my log to the
+      <strong>ARRL LoTW</strong> database for those who prefer electronic QSLs.
+      I do not use eQSL.
+    </p>
+  </section>
+
+  <!-- ── VHF/UHF ────────────────────────────────────── -->
+  <section id="vhf">
+    <h2>VHF / UHF</h2>
+    <p>
+      With the purchase of the FT-857D I was able to work toward
+      <strong>VUCC</strong>. My current VUCC status is shown below.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Band</th>
+            <th>Worked</th>
+            <th>Confirmed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>6m</td><td>218</td><td>205</td></tr>
+          <tr><td>2m</td><td>6</td><td>6</td></tr>
+          <tr><td>1.25m</td><td>0</td><td>0</td></tr>
+          <tr><td>70cm</td><td>2</td><td>1</td></tr>
+          <tr><td>33cm</td><td>0</td><td>0</td></tr>
+          <tr><td>23cm</td><td>0</td><td>0</td></tr>
+          <tr><td>13cm</td><td>0</td><td>0</td></tr>
+          <tr><td>9cm</td><td>0</td><td>0</td></tr>
+          <tr><td>6cm</td><td>0</td><td>0</td></tr>
+          <tr><td>3cm</td><td>0</td><td>0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── Microwaves ─────────────────────────────────── -->
+  <section id="microwaves">
+    <h2>Microwaves</h2>
+    <p>
+      I dabble in QRP and microwaves and was a member of the Northern
+      California-based
+      <a href="http://www.50mhzandup.org/" target="_blank" rel="noopener noreferrer">50 MHz and Up</a>
+      club. I currently own a 10 GHz station based on the
+      <a href="http://www.kuhne-electronic.de/english/transverter.htm" target="_blank" rel="noopener noreferrer">DB6NT 10 GHz transverter</a>
+      and a Yaesu FT-817, with a modified 18&quot; DSS dish as the antenna.
+      My transverter output is approximately 250 mW.
+    </p>
+    <p>
+      Using this system I made approximately 35 QSOs from the top of
+      <strong>Mount Diablo</strong> in Northern California during the first
+      weekend of the 2004 10 GHz Cumulative Contest. The longest QSO was just
+      over 290 km (~165 miles), made between Mount Diablo and Mount Lassen.
+    </p>
+    <p>
+      I integrated a PLL and 10 MHz OCXO into my system for frequency
+      stability. The PLL was designed and built by <strong>AD6IW</strong>; the
+      10 MHz OCXO is an ISOTEMP unit purchased on eBay. This modification made
+      a significant difference in my ability to make long-distance QSOs.
+    </p>
+  </section>
+
+
+
+</div><!-- /.page-wrap -->
+
+<!-- ── Footer ───────────────────────────────────────── -->
+<footer>
+  Last updated: July 23, 2026 &nbsp;&middot;&nbsp;
+  <a href="index.html">← Back to kellyandshari.com</a>
+</footer>
+
+</body>
+</html>
