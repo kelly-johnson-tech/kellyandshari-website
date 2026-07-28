@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal website of Kelly, Shari, Noah and Alexa Johnson" />
+  <title>Kelly &amp; Shari Johnson</title>
+
+  <!-- Google Fonts: Lora (display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & base ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1a2e;       /* deep navy — page text */
+      --muted:      #5a5a72;       /* secondary text */
+      --accent:     #2e6da4;       /* link / highlight blue */
+      --accent-lt:  #d6e8f7;       /* accent tint for card bg */
+      --rule:       #c8d8e8;       /* horizontal rules */
+      --bg:         #f7f9fc;       /* page background */
+      --card:       #ffffff;       /* card surface */
+      --radius:     10px;
+      --max-w:      680px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Page shell ────────────────────────────────────────────────── */
+    .page-wrap {
+      flex: 1;
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Header / hero ─────────────────────────────────────────────── */
+    header {
+      text-align: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 2.5rem;
+    }
+
+    .site-name {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .site-tagline {
+      margin-top: 0.5rem;
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    /* ── Sections ──────────────────────────────────────────────────── */
+    section {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    section h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-style: normal;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--accent-lt);
+    }
+
+    section p {
+      color: var(--ink);
+      font-size: 0.97rem;
+    }
+
+    /* ── Links ─────────────────────────────────────────────────────── */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+    a:hover, a:focus {
+      color: #1a4f7a;
+      border-bottom-color: currentColor;
+      outline: none;
+    }
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* ── Links list ────────────────────────────────────────────────── */
+    .link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .link-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .link-list li::before {
+      content: '→';
+      color: var(--accent);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .link-list a {
+      font-size: 0.97rem;
+      font-weight: 500;
+    }
+
+    .link-list .link-desc {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 0.1rem;
+    }
+
+    /* ── Contact section ───────────────────────────────────────────── */
+    .contact-note {
+      background: var(--accent-lt);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.6rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+
+    .contact-note strong {
+      color: var(--accent);
+    }
+
+    /* ── Copyright ─────────────────────────────────────────────────── */
+    .legal {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.6rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .legal strong {
+      color: var(--ink);
+    }
+
+    /* ── Footer ────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── Responsive ────────────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .page-wrap { padding: 1.5rem 1rem 3rem; }
+      section { padding: 1.2rem 1.2rem; }
+    }
+
+    /* ── Reduced motion ────────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <!-- ── Header ───────────────────────────────────────────────── -->
+    <header>
+      <h1 class="site-name">Kelly &amp; Shari Johnson</h1>
+      <p class="site-tagline">Noah &amp; Alexa too &mdash; A Family Website</p>
+    </header>
+
+    <!-- ── Welcome ──────────────────────────────────────────────── -->
+    <section>
+      <h2>Welcome</h2>
+      <p>
+        This is the personal website of the Johnson family &mdash; Kelly, Shari,
+        Noah, and Alexa. Family members are welcome to reach out to Kelly
+        to request access to our family photo albums.
+      </p>
+    </section>
+
+    <!-- ── Links ────────────────────────────────────────────────── -->
+    <section>
+      <h2>Links</h2>
+      <ul class="link-list">
+        <li>
+          <div>
+            <a href="http://ponderinglifesquestions.blogspot.com" target="_blank" rel="noopener noreferrer">
+              Kelly's Blog
+            </a>
+            <span class="link-desc">Pondering Life's Questions</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="http://n6kj.netlify.app" target="_blank" rel="noopener noreferrer">
+              N6KJ &mdash; Kelly's Amateur Radio Page
+            </a>
+            <span class="link-desc">Ham radio callsign N6KJ and all things radio</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ── Contact ──────────────────────────────────────────────── -->
+    <div class="contact-note">
+      <strong>Contact us:</strong> To get in touch with Kelly or Shari, please
+      reach out through a family member who can pass along our current
+      email address.
+    </div>
+
+    <!-- ── Legal ────────────────────────────────────────────────── -->
+    <div class="legal">
+      <strong>Legal Notice &mdash;</strong> All material on this website is
+      Copyright &copy; 2003&ndash;2025 Kelly and Shari Johnson, all rights
+      reserved. Please ask for permission before utilizing any content in any
+      form other than your own immediate personal use.
+    </div>
+
+  </div><!-- /.page-wrap -->
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer>
+    Last updated: 2025 &nbsp;&middot;&nbsp; kellyandshari.com
+  </footer>
+
+</body>
+</html>
